@@ -17,7 +17,7 @@ const HomePage = () => {
       <Box margin={"auto"} width="100%" height={"40vh"} paddingBottom={3}>
         <HomeSlider />
       </Box>
-      <Box padding={5} margin="auto">
+      <Box padding={5} marginTop={3}>
         <Typography variant="h4" textAlign={"center"}>
           Latest Releases
         </Typography>
