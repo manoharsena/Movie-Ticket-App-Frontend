@@ -20,36 +20,7 @@ const AuthForm = ({ onSubmit, isAdmin }) => {
   });
 
   const [isSignup, setIsSignup] = useState(false);
-  const [nameError, setUsernameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-
-  const validateForm = () => {
-    let isValid = true;
-    if (!inputs.name.trim()) {
-      setUsernameError("Username is required");
-      isValid = false;
-    } else {
-      setUsernameError("");
-    }
-    if (!inputs.email.trim()) {
-      setEmailError("Email is required");
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(inputs.email)) {
-      setEmailError("Invalid email address");
-      isValid = false;
-    } else {
-      setEmailError("");
-    }
-    if (!inputs.password.trim()) {
-      setPasswordError("Password is required");
-      isValid = false;
-    } else {
-      setPasswordError("");
-    }
-    return isValid;
-  };
-
+  
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -59,9 +30,7 @@ const AuthForm = ({ onSubmit, isAdmin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      onSubmit({ inputs, signup: isAdmin ? false : isSignup });
-    }
+    onSubmit({ inputs, signup: isAdmin ? false : isSignup });
   };
 
   return (
@@ -91,37 +60,31 @@ const AuthForm = ({ onSubmit, isAdmin }) => {
               <TextField
                 value={inputs.name}
                 onChange={handleChange}
-                className={`form-control ${nameError && "is-invalid"}`}
                 margin="normal"
                 variant="standard"
                 type={"text"}
                 name="name"
               />
-              {nameError && (<div style={{color:"red"}}>{nameError}</div>)}
             </>
           )}
           <FormLabel sx={labelStyle}>Email</FormLabel>
           <TextField
             value={inputs.email}
             onChange={handleChange}
-            className={`form-control ${emailError && "is-invalid"}`}
             margin="normal"
             variant="standard"
             type={"email"}
             name="email"
           />
-          {emailError && (<div style={{color:"red"}}>{emailError}</div>)}
           <FormLabel sx={labelStyle}>Password</FormLabel>
           <TextField
             value={inputs.password}
             onChange={handleChange}
-            className={`form-control ${passwordError && "is-invalid"}`}
             margin="normal"
             variant="standard"
             type={"password"}
             name="password"
           />
-          {passwordError && (<div style={{color:"red"}}>{passwordError}</div>)}
           <Button
             sx={{ mt: 2, borderRadius: 10, bgcolor: "#2b2d42" }}
             type="submit"
