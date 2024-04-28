@@ -8,11 +8,13 @@ import { userActions } from "../../store";
 const Auth = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const onResReceived = (data) => {
     dispatch(userActions.login());
-    localStorage.setItem("userId", data.id);
+    localStorage.setItem("userId", data.data._id);
     navigate("/");
   };
+
   const getData = (data) => {
     sendUserAuthRequest(data.inputs, data.signup)
       .then(onResReceived)
