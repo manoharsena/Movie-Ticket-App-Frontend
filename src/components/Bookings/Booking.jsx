@@ -4,7 +4,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { useParams } from "react-router-dom";
 import { getMovieDetails, newBooking } from "../../api-helpers/api-helpres.js";
-import UserProfile from "../../Profile/UserProfile.jsx";
 
 const Booking = () => {
   const [movie, setMovie] = useState();
