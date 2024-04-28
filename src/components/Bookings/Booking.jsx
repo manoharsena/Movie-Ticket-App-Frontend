@@ -27,10 +27,7 @@ const Booking = () => {
     e.preventDefault();
     console.log(inputs);
     newBooking({ ...inputs, movie: movie._id })
-      .then((res) => {
-        <UserProfile />
-        console.log(res)
-      })
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
   return (
