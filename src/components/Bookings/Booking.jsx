@@ -4,6 +4,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { useParams } from "react-router-dom";
 import { getMovieDetails, newBooking } from "../../api-helpers/api-helpres.js";
+import UserProfile from "../../Profile/UserProfile.jsx";
 
 const Booking = () => {
   const [movie, setMovie] = useState();
@@ -26,7 +27,10 @@ const Booking = () => {
     e.preventDefault();
     console.log(inputs);
     newBooking({ ...inputs, movie: movie._id })
-      .then((res) => console.log(res))
+      .then((res) => {
+        <UserProfile />
+        console.log(res)
+      })
       .catch((err) => console.log(err));
   };
   return (
