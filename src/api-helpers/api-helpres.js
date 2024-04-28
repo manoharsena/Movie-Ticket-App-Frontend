@@ -69,9 +69,9 @@ export const newBooking = async (data) => {
   const resData = await res.data;
   
   if (!alert("Booking Succcessful....."))
-    document.location = "https://movie-ticket-app-fe.netlify.app/user";
+    window.location = "https://movie-ticket-app-fe.netlify.app/user";
     
-    return resData;
+  return resData;
 };
 
 export const getUserBooking = async () => {
