@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const getAllMovies = async () => {
   const res = await axios.get("/movie").catch((err) => console.log(err));
 
@@ -66,7 +67,10 @@ export const newBooking = async (data) => {
     return console.log("Unexpected Error");
   }
   const resData = await res.data;
-  alert("Booking Succcessful.....");
+  
+  if (!alert("Booking Succcessful....."))
+    window.location = "https://movie-ticket-app-fe.netlify.app/user";
+    
   return resData;
 };
 
