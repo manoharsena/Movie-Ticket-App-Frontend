@@ -8,6 +8,7 @@ export const getAllMovies = async () => {
   }
 
   const data = await res.data;
+  data.movies.sort((a, b) => a.releaseDate > b.releaseDate ? -1 : 1); // sort movie by releaseDate
   return data;
 };
 
