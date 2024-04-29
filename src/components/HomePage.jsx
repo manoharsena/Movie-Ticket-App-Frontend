@@ -32,7 +32,7 @@ const HomePage = () => {
       >
         {movies &&
           movies
-            .slice(0, 4)
+            .slice(0, 8)
             .map((movie, index) => (
               <MovieItem
                 id={movie.id}
