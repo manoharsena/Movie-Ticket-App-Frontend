@@ -10,6 +10,8 @@
 
 ![Book a Movie](<public/Screenshot/Book Movie.png>)
 
+![Booking History](<public/Screenshot/Booking History.png>)
+
 ## Table of Contents
 - [MOVIE TICKET APPLICATION - MERN STACK](#movie-ticket-application---mern-stack)
   - [Table of Contents](#table-of-contents)
