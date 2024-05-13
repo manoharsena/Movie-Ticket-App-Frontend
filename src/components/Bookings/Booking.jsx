@@ -1,7 +1,6 @@
 import { Button, FormLabel, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { Fragment, useEffect, useState } from "react";
-import dayjs from "dayjs";
 import { useParams } from "react-router-dom";
 import { getMovieDetails, newBooking } from "../../api-helpers/api-helpres.js";
 
@@ -10,7 +9,7 @@ const Booking = () => {
   const [inputs, setInputs] = useState({ seatNumber: "", date: "" });
   const id = useParams().id;
   console.log(id);
-  const today = dayjs();
+  
   useEffect(() => {
     getMovieDetails(id)
       .then((res) => setMovie(res.movie))
@@ -29,6 +28,16 @@ const Booking = () => {
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
+
+  const dateNow = new Date(); 
+  const year = dateNow.getFullYear(); 
+  const monthWithOffset = dateNow.getUTCMonth() + 1; 
+  const month = monthWithOffset.toString().length < 2 ?
+    `0${monthWithOffset}` : monthWithOffset;
+  const date = dateNow.getUTCDate().toString().length < 2 ? `0${dateNow.getUTCDate()}` : dateNow.getUTCDate();
+  
+  const today = `${year}-${month}-${date}`;
+
   return (
     <div>
       {movie && (
@@ -92,7 +101,7 @@ const Booking = () => {
                     margin="normal"
                     variant="standard"
                     value={inputs.date}
-                    minDate={today}
+                    inputProps={{ min: today }}
                     InputLabelProps={{
                       shrink: true,
                     }}
