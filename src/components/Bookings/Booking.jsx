@@ -37,7 +37,7 @@ const Booking = () => {
   const date = dateNow.getUTCDate().toString().length < 2 ? `0${dateNow.getUTCDate()}` : dateNow.getUTCDate();
   
   const today = `${year}-${month}-${date}`;
-  const maxDate = `${year}-${month}-${date+10}`;
+  const maxDate = `${year}-${month}-${date+6}`;
 
   return (
     <div>
