@@ -1,12 +1,13 @@
 import { Button, FormLabel, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { Fragment, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getMovieDetails, newBooking } from "../../api-helpers/api-helpres.js";
 
 const Booking = () => {
   const [movie, setMovie] = useState();
   const [inputs, setInputs] = useState({ seatNumber: "", date: "" });
+  const navigate = useNavigate();
   const id = useParams().id;
   console.log(id);
   
@@ -27,6 +28,7 @@ const Booking = () => {
     newBooking({ ...inputs, movie: movie._id })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+    navigate("/");
   };
 
   const dateNow = new Date(); 
