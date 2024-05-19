@@ -68,7 +68,7 @@ export const newBooking = async (data) => {
     return console.log("Unexpected Error");
   }
   const resData = await res.data;
-  alert("Booking Succcessful..... \n You can view Booked tickets in Profile Section.");
+  alert("Booking Successful..... \n You can view Booked tickets in Profile Section.");
       
   return resData;
 };
